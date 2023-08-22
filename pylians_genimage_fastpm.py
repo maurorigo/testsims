@@ -37,7 +37,7 @@ if args.Npixels:
     print("Upsampling true.")
 else:
     Npixels = Nmesh
-    fout = f'PLFastPMoverdensity{Nmesh}.png'
+    fout = f'FastPMoverdensity{Nmesh}.png'
 
 min_overdensity = 0.5     # Minimum overdensity to plot
 max_overdensity = 50.0    # Maximum overdensity to plot
@@ -79,10 +79,12 @@ X[:, 0] -= xmin;  X[:, 1] -= ymin;  X[:, 2] -= zmin
 plane_dict = {'XY':[0, 1], 'XZ':[0, 2], 'YZ':[1, 2]}
 X = X[:, plane_dict[plane]]
 
+slice_mass = len(X)
+
 # Compute overdensity somehow
 MASL.MA(X, overdensity, BoxSize_slice, MAS='CIC', W=None, renormalize_2D=True)
 
-print(f"Expected mass = {total_mass}, computed mass = {np.sum(overdensity)}.")
+print(f"Expected mass = {slice_mass}, computed mass = {np.sum(overdensity)}.")
 
 # Mean density in the whole box
 mass_density = total_mass/args.BoxSize**3
