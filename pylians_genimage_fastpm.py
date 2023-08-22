@@ -67,25 +67,27 @@ overdensity = np.zeros((Npixels, Npixels), dtype=np.float32)
 total_mass = len(X)
 
 # Keep only with the particles in the slice
-indexes = np.where((X[:,0]>xmin) & (X[:,0]<xmax) &
-                    (X[:,1]>ymin) & (X[:,1]<ymax) &
-                    (X[:,2]>zmin) & (X[:,2]<zmax) )
+indexes = np.where((X[:, 0]>xmin) & (X[:, 0]<xmax) &
+                    (X[:, 1]>ymin) & (X[:, 1]<ymax) &
+                    (X[:, 2]>zmin) & (X[:, 2]<zmax) )
 X = X[indexes]
 
 # Renormalize positions
-X[:,0] -= xmin;  X[:,1] -= ymin;  X[:,2] -= zmin
+X[:, 0] -= xmin;  X[:, 1] -= ymin;  X[:, 2] -= zmin
 
 # Project particle positions into a 2D plane
-plane_dict = {'XY':[0,1], 'XZ':[0,2], 'YZ':[1,2]}
+plane_dict = {'XY':[0, 1], 'XZ':[0, 2], 'YZ':[1, 2]}
 X = X[:, plane_dict[plane]]
 
 # Compute overdensity somehow
 MASL.MA(X, overdensity, BoxSize_slice, MAS='CIC', W=None, renormalize_2D=True)
 
+print(f"Expected mass = {total_mass}, computed mass = {np.sum(overdensity)}.")
+
 # Mean density in the whole box
-mass_density = total_mass*1.0/args.BoxSize**3
+mass_density = total_mass/args.BoxSize**3
 # Volume of each cell in the density field slice
-V_cell = BoxSize_slice**2*args.BoxSize*1.0/Npixels**2
+V_cell = BoxSize_slice**2*slicew/Npixels**2
 # Mean mass in each cell of the slice
 mean_mass = mass_density*V_cell
 
