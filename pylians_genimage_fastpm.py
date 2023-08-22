@@ -82,7 +82,7 @@ X = X[:, plane_dict[plane]]
 slice_mass = len(X)
 
 # Compute overdensity somehow
-MASL.MA(X, overdensity, BoxSize_slice, MAS='CIC', W=None, renormalize_2D=True)
+MASL.MA(X, overdensity, BoxSize_slice, MAS='PCS', W=None, renormalize_2D=True)
 
 print(f"Expected mass = {slice_mass}, computed mass = {np.sum(overdensity)}.")
 
