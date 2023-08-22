@@ -1,3 +1,1 @@
-Repo for tests on GADGET simulation outputs.
-
-Used to transfer data to then plot.
+Repo for results of LDL, density fields from GADGET, TNG and FastPM.
