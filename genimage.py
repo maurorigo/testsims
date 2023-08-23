@@ -20,7 +20,7 @@ save_df      = False #whether save the density field into a file
 # image parameters
 fout            = f'TNG300-3_Stars_{grid}.png'
 min_overdensity = 0.5      #minimum overdensity to plot
-max_overdensity = 50.0    #maximum overdensity to plot
+max_overdensity = 1500.0    #maximum overdensity to plot
 scale           = 'log' #'linear' or 'log'
 cmap            = 'viridis'
 
