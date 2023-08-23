@@ -37,7 +37,7 @@ if args.Npixels:
     print("Upsampling true.")
 else:
     Npixels = Nmesh
-    fout = f'FastPMoverdensity{Nmesh}.png'
+    fout = f'PLtestFieldOD{Nmesh}2.png'
 
 min_overdensity = 0.5     # Minimum overdensity to plot
 max_overdensity = 50.0    # Maximum overdensity to plot
