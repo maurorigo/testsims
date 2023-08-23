@@ -5,24 +5,24 @@ from pylab import *
 from matplotlib.colors import LogNorm
 
 #snapshot name
-snapshot = '/scratch/viel/MAURO/planck1_60_768/snapdir_004/snap_004'
+snapshot = '/scratch/mrigo/SIMULATIONS/TNG/TNG300-3/snapdir_099/snap_099'
 
 # density field parameters
-x_min, x_max = 0.0, 60.0
-y_min, y_max = 0.0, 60.0
+x_min, x_max = 0.0, 205
+y_min, y_max = 0.0, 205
 z_min, z_max = 0.0, 20.0
-grid         = 1024
-ptypes       = [1]   # 0-Gas, 1-CDM, 2-NU, 4-Stars; can deal with several species
+grid         = 625
+ptypes       = [4]   # 0-Gas, 1-CDM, 2-NU, 4-Stars; can deal with several species
 plane        = 'XY'  #'XY','YZ' or 'XZ'
 MAS          = 'PCS' #'NGP', 'CIC', 'TSC', 'PCS'
-save_df      = False  #whether save the density field into a file
+save_df      = False #whether save the density field into a file
 
 # image parameters
-fout            = 'testImage.png'
+fout            = f'TNG300-3_Stars_{grid}.png'
 min_overdensity = 0.5      #minimum overdensity to plot
 max_overdensity = 50.0    #maximum overdensity to plot
 scale           = 'log' #'linear' or 'log'
-cmap            = 'hot'
+cmap            = 'viridis'
 
 
 # compute 2D overdensity field
