@@ -73,6 +73,6 @@ else:
                        norm = LogNorm(vmin=min_overdensity, vmax=max_overdensity))
 
 cbar = fig.colorbar(cax)
-cbar.set_label(r"$\rho/\bar{\rho}$LDL",fontsize=10)
+cbar.set_label(r"$\rho/\bar{\rho}$",fontsize=10)
 plt.savefig(fout, bbox_inches='tight')
 plt.close(fig)
