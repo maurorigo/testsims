@@ -21,8 +21,8 @@ offset = 0.
 slicew = 20.
 scale = 'log'
 cmap = 'viridis'
-min_overdensity = 0.5
-max_overdensity = 50.0
+min_overdensity = 0.1
+max_overdensity = 100.
 
 print("Importing data...")
 
@@ -40,11 +40,13 @@ indices[axnum] = slice(start, end)
 indices = tuple(indices)
 overdensity = overdensity[indices].sum(axis=axnum)/(end-start) # 2D overdensity (IDK WHY NORMLIZATION LIKE THAT)
 overdensity = np.transpose(overdensity)
-#print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
+print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
 
 overdensity *= 1e10
-min_overdensity *= 1e10
-max_overdensity *= 1e10
+#min_overdensity *= 1e10
+#max_overdensity *= 1e10
+max_overdensity = np.max(overdensity)
+min_overdensity = max_overdensity/1000.
 print("Overdensity generated, creating figure...")
 
 fig = plt.figure()

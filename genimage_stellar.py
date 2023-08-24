@@ -29,12 +29,13 @@ cmap            = 'viridis'
 dx, x, dy, y, overdensity = PL.density_field_2D(snapshot, x_min, x_max, y_min, y_max,
                                                 z_min, z_max, grid, ptypes, plane, MAS, save_df)
 
+print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
 overdensity *= 1e10
 min_overdensity *= 1e10
 max_overdensity *= 1e10
 # plot density field
 print('\nCreating the figure...')
-fig = figure()    #create the figure
+"""fig = figure()    #create the figure
 ax1 = fig.add_subplot(111)
 
 ax1.set_xlim([x, x+dx])  #set the range for the x-axis
@@ -60,4 +61,4 @@ else:
 cbar = fig.colorbar(cax)
 cbar.set_label(r"$\rho/\bar{\rho}$",fontsize=10)
 savefig(fout, bbox_inches='tight')
-close(fig)
+close(fig)"""
