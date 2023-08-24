@@ -44,9 +44,9 @@ overdensity /= avg_mass
 overdensity = np.transpose(overdensity)
 print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
 
-overdensity *= 1e10
-min_overdensity *= 1e10
-max_overdensity *= 1e10
+overdensity *= 1e9
+min_overdensity *= 1e9
+max_overdensity *= 1e9
 print("Overdensity generated, creating figure...")
 
 fig = plt.figure()

@@ -30,9 +30,9 @@ dx, x, dy, y, overdensity = PL.density_field_2D(snapshot, x_min, x_max, y_min, y
                                                 z_min, z_max, grid, ptypes, plane, MAS, save_df)
 
 print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
-overdensity *= 1e10
-min_overdensity *= 1e10
-max_overdensity *= 1e10
+overdensity *= 1e8
+min_overdensity *= 1e8
+max_overdensity *= 1e8
 # plot density field
 print('\nCreating the figure...')
 fig = figure()    #create the figure
