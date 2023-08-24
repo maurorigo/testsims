@@ -44,9 +44,9 @@ overdensity /= avg_mass
 overdensity = np.transpose(overdensity)
 print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
 
-overdensity *= 1e9
-min_overdensity *= 1e9
-max_overdensity *= 1e9
+overdensity *= 1e10
+min_overdensity *= 1e10
+max_overdensity *= 1e10
 print("Overdensity generated, creating figure...")
 
 fig = plt.figure()
@@ -73,6 +73,6 @@ else:
                        norm = LogNorm(vmin=min_overdensity, vmax=max_overdensity))
 
 cbar = fig.colorbar(cax)
-cbar.set_label(r"$\rho/\bar{\rho}$",fontsize=10)
+cbar.set_label(r"$\rho/\bar{\rho}$LDL",fontsize=10)
 plt.savefig(fout, bbox_inches='tight')
 plt.close(fig)
