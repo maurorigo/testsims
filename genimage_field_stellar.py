@@ -15,7 +15,7 @@ try:
 except:
     raise Exception("Something wrong with path.")
 
-fout = f'FPMod{Nmesh}.png'
+fout = f'FPMstellar{Nmesh}.png'
 plane = 'XY'
 offset = 0.
 slicew = 20.
@@ -42,6 +42,9 @@ overdensity = overdensity[indices].sum(axis=axnum)/(end-start) # 2D overdensity 
 overdensity = np.transpose(overdensity)
 #print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
 
+overdensity *= 1e10
+min_overdensity *= 1e10
+max_overdensity *= 1e10
 print("Overdensity generated, creating figure...")
 
 fig = plt.figure()
