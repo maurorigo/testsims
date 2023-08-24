@@ -10,15 +10,15 @@ snapshot = '/scratch/mrigo/SIMULATIONS/TNG/TNG300-3/snapdir_099/snap_099'
 # density field parameters
 x_min, x_max = 0.0, 205
 y_min, y_max = 0.0, 205
-z_min, z_max = 0.0, 20.0
+z_min, z_max = 0.0, 20.
 grid         = 256
 ptypes       = [4]   # 0-Gas, 1-CDM, 2-NU, 4-Stars; can deal with several species
 plane        = 'XY'  #'XY','YZ' or 'XZ'
-MAS          = 'PCS' #'NGP', 'CIC', 'TSC', 'PCS'
+MAS          = 'CIC' #'NGP', 'CIC', 'TSC', 'PCS'
 save_df      = False #whether save the density field into a file
 
 # image parameters
-fout            = f'TNG300-3_Stars_{grid}.png'
+fout            = f'TNG300-3stellar{grid}.png'
 min_overdensity = 0.1      #minimum overdensity to plot
 max_overdensity = 100.0    #maximum overdensity to plot
 scale           = 'log' #'linear' or 'log'
@@ -35,7 +35,7 @@ min_overdensity *= 1e10
 max_overdensity *= 1e10
 # plot density field
 print('\nCreating the figure...')
-"""fig = figure()    #create the figure
+fig = figure()    #create the figure
 ax1 = fig.add_subplot(111)
 
 ax1.set_xlim([x, x+dx])  #set the range for the x-axis
@@ -61,4 +61,4 @@ else:
 cbar = fig.colorbar(cax)
 cbar.set_label(r"$\rho/\bar{\rho}$",fontsize=10)
 savefig(fout, bbox_inches='tight')
-close(fig)"""
+close(fig)

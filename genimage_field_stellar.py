@@ -15,7 +15,7 @@ try:
 except:
     raise Exception("Something wrong with path.")
 
-fout = f'FPMstellar{Nmesh}.png'
+fout = f'LDLstellar{Nmesh}.png'
 plane = 'XY'
 offset = 0.
 slicew = 20.
@@ -38,15 +38,15 @@ axisdict = {'XY': 2, 'XZ': 1, 'YZ': 0}
 axnum = axisdict[plane]
 indices[axnum] = slice(start, end)
 indices = tuple(indices)
+avg_mass = np.sum(overdensity) / Nmesh**3 
 overdensity = overdensity[indices].sum(axis=axnum)/(end-start) # 2D overdensity (IDK WHY NORMLIZATION LIKE THAT)
+overdensity /= avg_mass
 overdensity = np.transpose(overdensity)
 print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
 
 overdensity *= 1e10
-#min_overdensity *= 1e10
-#max_overdensity *= 1e10
-max_overdensity = 2e10
-min_overdensity = 2e7
+min_overdensity *= 1e10
+max_overdensity *= 1e10
 print("Overdensity generated, creating figure...")
 
 fig = plt.figure()
