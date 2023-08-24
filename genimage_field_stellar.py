@@ -15,7 +15,7 @@ try:
 except:
     raise Exception("Something wrong with path.")
 
-fout = f'PLFPMstellar{Nmesh}.png'
+fout = f'FPMstellar{Nmesh}.png'
 plane = 'XY'
 offset = 0.
 slicew = 20.
@@ -45,8 +45,8 @@ print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
 overdensity *= 1e10
 #min_overdensity *= 1e10
 #max_overdensity *= 1e10
-max_overdensity = np.max(overdensity)
-min_overdensity = max_overdensity/1000.
+max_overdensity = 2e10
+min_overdensity = 2e7
 print("Overdensity generated, creating figure...")
 
 fig = plt.figure()
