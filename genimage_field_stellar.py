@@ -15,7 +15,7 @@ try:
 except:
     raise Exception("Something wrong with path.")
 
-fout = f'TNGstellar{Nmesh}.png'
+fout = f'FPMstellar{Nmesh}.png'
 plane = 'XY'
 offset = 0.
 slicew = 20.
