@@ -13,9 +13,10 @@ args = parser.parse_args()
 try:
     Nmesh = int(args.path.split('Nmesh')[1].split('_')[0])
 except:
-    raise Exception("Something wrong with path.")
+    Nmesh = 128
+    #raise Exception("Something wrong with path.")
 
-fout = f'TNG300-3stellar{Nmesh}.png'
+fout = f'TNG300-3stellar{Nmesh}TEST.png'
 plane = 'XY'
 offset = 0.
 slicew = 20.
