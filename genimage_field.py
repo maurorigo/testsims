@@ -16,7 +16,7 @@ except:
     #raise Exception("Something wrong with path.")
     Nmesh=256
 
-fout = f'FastPM_nHI_{Nmesh}.png'
+fout = f'TNG300-3_nHI_{Nmesh}.png'
 plane = 'XY'
 offset = 0.
 slicew = 20.
@@ -41,7 +41,8 @@ indices[axnum] = slice(start, end)
 indices = tuple(indices)
 overdensity = overdensity[indices].sum(axis=axnum)/(end-start) # 2D overdensity (IDK WHY NORMLIZATION LIKE THAT)
 overdensity = np.transpose(overdensity)
-#print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
+overdensity *= 1e9 # FOR nHI VISUAL
+print(np.max(overdensity), np.min(overdensity), np.mean(overdensity))
 
 print("Overdensity generated, creating figure...")
 
