@@ -24,7 +24,7 @@ self.edges = [numpy.asarray(g) for g in edges]
 at line 380, while ```nbodykit/source/mesh/linear.py``` should have
 
 ```python
-mask = np.bitwise_and.reduce(np.array([ki == 0 for ki in k], dtype=object))
+mask = numpy.bitwise_and.reduce(np.array([ki == 0 for ki in k], dtype=object))
 ```
 
 at line 87, see [this](https://github.com/rainwoodman/fastpm-python/issues/18).
