@@ -2,7 +2,9 @@
 
 This is the repo for my current project of applying LDL to different cosmologies.
 
-LDL is [Lagrangian Deep Learning](https://arxiv.org/abs/2010.02926), and the code I use is based on [this](https://github.com/biweidai/LDL). 
+LDL is [Lagrangian Deep Learning](https://arxiv.org/abs/2010.02926), and the code I use is based on [this](https://github.com/biweidai/LDL).
+
+Disclaimer: At the moment the repo contains mostly images and code to generate them, as that's all I've been able to do up to this point.
 
 ## Packages
 
@@ -10,7 +12,7 @@ The packages needed for running LDL are:
 
 [vmad](https://github.com/rainwoodman/vmad)  
 [nbodykit](https://github.com/bccp/nbodykit)  
-[fastpm-python](https://github.com/rainwoodman/fastpm-python) 
+[fastpm-python](https://github.com/rainwoodman/fastpm-python)
 
 ## Important notes
 
@@ -22,7 +24,7 @@ self.edges = [numpy.asarray(g) for g in edges]
 at line 380, while ```nbodykit/source/mesh/linear.py``` should have
 
 ```python
-mask = numpy.bitwise_and.reduce([ki == 0 for ki in k])
+mask = np.bitwise_and.reduce(np.array([ki == 0 for ki in k], dtype=object))
 ```
 
 at line 87, see [this](https://github.com/rainwoodman/fastpm-python/issues/18).
