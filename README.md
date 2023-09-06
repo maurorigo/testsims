@@ -29,6 +29,8 @@ mask = numpy.bitwise_and.reduce(np.array([ki == 0 for ki in k], dtype=object))
 
 at line 87, see [this](https://github.com/rainwoodman/fastpm-python/issues/18).
 
+The vmad code installed via ```pip install vmad``` is outdated and will yield errors. Clone the repo and update the package manually.
+
 ## Actions
 
-At the moment, actions only test wether LDL.py works as intended when producing a stellar map. In the future, it should also include a test run of the N-body simulator (different simulators with different codes may be used, but this has not been fully defined yet).
+At the moment, actions only test wether LDL.py and model.py work as intended when producing a stellar map. In the future, it should also include a test run of the N-body simulator (different simulators with different codes may be used, but this has not been fully defined yet).

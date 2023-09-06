@@ -3,7 +3,7 @@ on: [push]
 jobs:
   test-docker-image:
     runs-on: ubuntu-latest
-    container: maurorigo/ldlimg:firsttest
+    container: maurorigo/ldlimg:latest
 
     steps:
       - name: Check out repository
