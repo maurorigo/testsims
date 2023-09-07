@@ -1,16 +1,15 @@
-name: Actions on maurorigo
+name: Testing new image
 on: [push]
 jobs:
   test-docker-image:
     runs-on: ubuntu-latest
-    container: maurorigo/ldlimg:latest
+    container: maurorigo/ldlimg:focal
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
-      - name: Run a test fastpm
+      - name: Run test fastpm
         run: |
           . /root/miniconda3/etc/profile.d/conda.sh
+          pwd
           conda activate LDLenv
-          cd /home/fastpmsims/
-          python runfastpm.py 0
