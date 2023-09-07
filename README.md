@@ -1,4 +1,4 @@
-# Repo for LDL for different cosmologies
+#Repo for LDL for different cosmologies
 
 This is the repo for my current project of applying LDL to different cosmologies.
 
@@ -35,7 +35,7 @@ Additionally, there may be problems with mpi4py, as the installed version may re
 
 ## Docker
 
-The attached Dockerfile builds an image from ubuntu installing nbodykit, vmad and fastpm correctly on a conda environment called LDLenv. Build the image with (may take several minutes, mostly due to installing nbodykit)
+The attached Dockerfile builds an image from ubuntu installing nbodykit, vmad and fastpm correctly on a conda environment called LDLenv. It also installs matplotlib and Pylians for visualization. Build the image with (may take several minutes, mostly due to installing nbodykit and Pylians)
 
 ```
 docker build -t NAME[:TAG] /PATH/TO/DOCKERFILE/
@@ -47,7 +47,9 @@ and run it with (suggested)
 docker run -it NAME[:TAG]
 ```
 
-Note that, on Mac with M1 or above chips, you need to specify ```--platform linux/x86_64``` both on when building and running.
+The image is also available at ```maurorigo/ldlimg:focal```.
+
+**NOTE**: on Mac with M1 or above chips, you need to specify ```--platform linux/x86_64``` both on when building and running.
 
 Additional files in the Docker folder can be used to test the image created. Files can be loaded in the images with ```docker cp``` and ```docker commit``` or simply by creating the corresponding files in the image and copy-pasting the text.
 
@@ -63,7 +65,7 @@ or, with MPI:
 mpirun -n PROCS python testfastpm.py 0
 ```
 
-where the ```0``` is the redshift of the snapshot to create (which will not be saved) and ```PROCS``` is the number of MPI processes.
+where the ```0``` is the redshift of the snapshot to create (which will be saved in the current folder) and ```PROCS``` is the number of MPI processes.
 
 ## Actions
 

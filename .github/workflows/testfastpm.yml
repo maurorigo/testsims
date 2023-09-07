@@ -1,4 +1,4 @@
-name: Testing fastpm 
+name: Testing fastpm with overdensity field 
 on: [push]
 jobs:
   test-fastpm-on-image:
@@ -14,3 +14,4 @@ jobs:
           conda activate LDLenv
           cd Docker
           python testfastpm.py 0
+          python ../genimage/pylians_genimage_fastpm.py FastPM_Nmesh64_Nstep10_z0.00

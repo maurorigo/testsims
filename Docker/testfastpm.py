@@ -78,9 +78,9 @@ def monitor(action, ai, ac, af, state, event):
             fac2 = (pt.Gf(a) - pt.Gf(a0)) / (pt.Gf(af) - pt.Gf(a0))
             V = fac1 * V0 + fac2 * state.V
 
-            #save the snapshot (COMMENTED SAVE TO PREVENT PRODUCING USELESS THINGS)
+            #save the snapshot
             cat = ArrayCatalog({'Position' : X, 'Velocity' : V}, BoxSize=state.pm.BoxSize)
-            #cat.save(args.save + '/FastPM_Nmesh%d_Nstep%d_z%.2f' % (args.Nmesh, args.Nstep, 1./a-1.), ('Position', 'Velocity'))
+            cat.save(args.save + '/FastPM_Nmesh%d_Nstep%d_z%.2f' % (args.Nmesh, args.Nstep, 1./a-1.), ('Position', 'Velocity'))
             del X, V
             if state.pm.comm.rank == 0:
                 print('Finish writing snapshot at redshift %.2f' % (1./a-1.), 'Time:', time.time()-t)

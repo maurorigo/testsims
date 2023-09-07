@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
-# Ubuntu image with nbodykit, vmad and fastpm installed. Works at least up to numpy 1.25.2
+# Ubuntu image with nbodykit, vmad and fastpm installed. Works at least up to numpy 1.25.2.
+# Also installs visualization packages (matplotlib and Pylians)
 
 # Install wget
 RUN apt-get update \
@@ -25,6 +26,13 @@ RUN . /root/miniconda3/etc/profile.d/conda.sh \
     && conda install -y -c bccp nbodykit \
     && pip install -U --no-deps https://github.com/bccp/nbodykit/archive/master.zip \
     && pip install fastpm
+
+# Install visualization tools (separated to allow using cached steps if building fails)
+RUN . /root/miniconda3/etc/profile.d/conda.sh \
+    && conda activate LDLenv \
+    && apt-get install -y gcc \
+    && pip install matplotlib \
+    && pip install Pylians
 
 # Install vmad (the version available with pip is outdated and yields errors)
 RUN cd /home \
