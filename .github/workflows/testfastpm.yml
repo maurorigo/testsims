@@ -1,7 +1,7 @@
-name: Testing new image
+name: Testing fastpm 
 on: [push]
 jobs:
-  test-docker-image:
+  test-fastpm-on-image:
     runs-on: ubuntu-latest
     container: maurorigo/ldlimg:focal
 
@@ -11,5 +11,6 @@ jobs:
       - name: Run test fastpm
         run: |
           . /root/miniconda3/etc/profile.d/conda.sh
-          pwd
           conda activate LDLenv
+          cd Docker
+          python testfastpm.py 0
