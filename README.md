@@ -16,7 +16,7 @@ The packages needed for running LDL are:
 
 ## Important notes
 
-Note that installing the packages above with the procedure indicated in the READMEs results in errors when running the code mostly due to updates of numpy. Specifically, ```pmesh/domain.py``` should have
+Note that ***installing the packages above with the procedure indicated in the READMEs results in errors when running the code***. Specifically, ```pmesh/domain.py``` should have
 
 ```python
 self.edges = [numpy.asarray(g) for g in edges]
@@ -30,6 +30,12 @@ mask = numpy.bitwise_and.reduce(np.array([ki == 0 for ki in k], dtype=object))
 at line 87, see [this](https://github.com/rainwoodman/fastpm-python/issues/18).
 
 The vmad code installed via ```pip install vmad``` is outdated and will yield errors. Clone the repo and update the package manually.
+
+Additionally, there may be problems with mpi4py, as the installed version may require a file named ```libmpi.so.12``` which apparently used to come with OpenMPI v1.10, which is no longer supported. A workaround consists in installing mpich, locating ```libmpich.so.12``` and creating a symbolic link from it to ```libmpi.so.12```.
+
+## Docker
+
+The attached Dockerfile builds an image from ubuntu installing nbodykit, vmad and fastpm correctly on a conda environment called LDLenv. Additional files in the Docker folder can be used to test the image created.
 
 ## Actions
 
