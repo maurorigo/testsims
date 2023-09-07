@@ -16,7 +16,7 @@ The packages needed for running LDL are:
 
 ## Important notes
 
-Note that ***installing the packages above with the procedure indicated in the READMEs results in errors when running the code***. Specifically, ```pmesh/domain.py``` should have
+Note that installing the packages above with the procedure indicated in the READMEs results in errors when running the code. Specifically, ```pmesh/domain.py``` should have
 
 ```python
 self.edges = [numpy.asarray(g) for g in edges]
@@ -35,7 +35,35 @@ Additionally, there may be problems with mpi4py, as the installed version may re
 
 ## Docker
 
-The attached Dockerfile builds an image from ubuntu installing nbodykit, vmad and fastpm correctly on a conda environment called LDLenv. Additional files in the Docker folder can be used to test the image created.
+The attached Dockerfile builds an image from ubuntu installing nbodykit, vmad and fastpm correctly on a conda environment called LDLenv. Build the image with (may take several minutes, mostly due to installing nbodykit)
+
+```
+docker build -t NAME[:TAG] /PATH/TO/DOCKERFILE/
+```
+
+and run it with (suggested)
+
+```
+docker run -it NAME[:TAG]
+```
+
+Note that, on Mac with M1 or above chips, you need to specify ```--platform linux/x86_64``` both on when building and running.
+
+Additional files in the Docker folder can be used to test the image created. Files can be loaded in the images with ```docker cp``` and ```docker commit``` or simply by creating the corresponding files in the image and copy-pasting the text.
+
+To test fastpm, you can load  ```testfastpm.py``` and ```input_spectrum_PLANCK15.txt``` and run:
+
+```
+python testfastpm.py 0
+```
+
+or, with MPI:
+
+```
+mpirun -n PROCS python testfastpm.py 0
+```
+
+where the ```0``` is the redshift of the snapshot to create (which will not be saved) and ```PROCS``` is the number of MPI processes.
 
 ## Actions
 
