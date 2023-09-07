@@ -27,13 +27,6 @@ RUN . /root/miniconda3/etc/profile.d/conda.sh \
     && pip install -U --no-deps https://github.com/bccp/nbodykit/archive/master.zip \
     && pip install fastpm
 
-# Install visualization tools (separated to allow using cached steps if building fails)
-RUN . /root/miniconda3/etc/profile.d/conda.sh \
-    && conda activate LDLenv \
-    && apt-get install -y gcc \
-    && pip install matplotlib \
-    && pip install Pylians
-
 # Install vmad (the version available with pip is outdated and yields errors)
 RUN cd /home \
     && git clone https://github.com/rainwoodman/vmad.git \
@@ -43,6 +36,12 @@ RUN cd /home \
 # Nasty trick to have libmpi.so.12 (mpi4py requires it and openmpi doesn't distribute it anymore)
 RUN apt install -y mpich \
     && ln -s /usr/lib/x86_64-linux-gnu/libmpich.so.12 /usr/lib/x86_64-linux-gnu/libmpi.so.12
+
+# Install visualization tools (after mpi otherwise Pylians complains)
+RUN . /root/miniconda3/etc/profile.d/conda.sh \
+    && conda activate LDLenv \
+    && pip install matplotlib \
+    && pip install Pylians
 
 # Edit some lines of files in libraries for compatibility issues
 RUN cd /root/miniconda3/envs/LDLenv/lib/python3.8/site-packages/nbodykit/source/mesh/ \
