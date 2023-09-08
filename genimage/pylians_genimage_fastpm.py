@@ -3,7 +3,6 @@ import time
 import argparse
 from pmesh.pm import ParticleMesh, RealField
 from bigfile import File
-from mpi4py import MPI
 from matplotlib import pyplot as plt
 from matplotlib.colors import LogNorm
 import MAS_library as MASL
