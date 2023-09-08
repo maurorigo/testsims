@@ -1,7 +1,6 @@
 import numpy as np
 import time
 import argparse
-from pmesh.pm import ParticleMesh, RealField
 from bigfile import File
 from matplotlib import pyplot as plt
 from matplotlib.colors import LogNorm
