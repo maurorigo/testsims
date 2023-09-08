@@ -12,6 +12,7 @@ jobs:
         run: |
           . /root/miniconda3/etc/profile.d/conda.sh
           conda activate LDLenv
-          cd Docker
+          cd docker
           python testfastpm.py 0
           python ../genimage/pylians_genimage_fastpm.py FastPM_Nmesh64_Nstep10_z0.00
+          rm -r FastPM_Nmesh64_Nstep10_z0.00
