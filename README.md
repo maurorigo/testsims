@@ -1,4 +1,4 @@
-#Repo for LDL for different cosmologies
+# Repo for LDL for different cosmologies
 
 This is the repo for my current project of applying LDL to different cosmologies.
 
