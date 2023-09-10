@@ -5,6 +5,7 @@ from bigfile import File
 from matplotlib import pyplot as plt
 from matplotlib.colors import LogNorm
 import MAS_library as MASL
+from mpi4py import MPI
 
 parser = argparse.ArgumentParser()
 
