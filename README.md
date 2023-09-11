@@ -67,6 +67,8 @@ mpirun -n PROCS python testfastpm.py 0
 
 where the ```0``` is the redshift of the snapshot to create (which will be saved in the current folder) and ```PROCS``` is the number of MPI processes.
 
+The image can also be used to build a working singularity image, that can run for instance on [Leonardo](https://leonardo-supercomputer.cineca.eu/). However, in that case it is necessary to run ```conda init bash``` and restarting the image before using conda. 
+
 ## Actions
 
 At the moment, actions only test wether LDL.py and model.py work as intended when producing a stellar map. In the future, it should also include a test run of the N-body simulator (different simulators with different codes may be used, but this has not been fully defined yet).
