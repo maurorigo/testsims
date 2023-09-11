@@ -51,7 +51,7 @@ The image is also available at ```maurorigo/ldlimg:final```.
 
 **NOTE**: on Mac with M1 or above chips, you need to specify ```--platform linux/x86_64``` both on when building and running.
 
-Additional files in the Docker folder can be used to test the image created. Files can be loaded in the images with ```docker cp``` and ```docker commit``` or simply by creating the corresponding files in the image and copy-pasting the text.
+Additional files in the Docker folder can be used to test the image created. They can be loaded during building with the ```COPY``` command. Otherwise, they can be loaded during run with ```docker cp``` and ```docker commit``` or simply by creating the corresponding files in the image and copy-pasting the text.
 
 To test fastpm, you can load  ```testfastpm.py``` and ```input_spectrum_PLANCK15.txt``` and run:
 
@@ -67,7 +67,7 @@ mpirun -n PROCS python testfastpm.py 0
 
 where the ```0``` is the redshift of the snapshot to create (which will be saved in the current folder) and ```PROCS``` is the number of MPI processes.
 
-The image can also be used to build a working singularity image, that can run for instance on [Leonardo](https://leonardo-supercomputer.cineca.eu/). However, in that case it is necessary to run ```conda init bash``` and restarting the image before using conda. 
+The image can also be used to build a singularity image that can run for instance on [Leonardo](https://leonardo-supercomputer.cineca.eu/). However, in that case it is necessary to run ```conda init bash``` and restarting the image before using conda. 
 
 ## Actions
 
