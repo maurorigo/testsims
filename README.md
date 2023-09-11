@@ -16,7 +16,7 @@ The packages needed for running LDL are:
 
 ## Important notes
 
-Note that installing the packages above with the procedure indicated in the READMEs results in errors when running the code. Specifically, ```pmesh/domain.py``` should have
+Note that installing the packages above with the procedure indicated in the READMEs results in errors when running the code. Specifically, it is recommended to install nbodykit as indicated in the [guide](https://nbodykit.readthedocs.io/en/latest/getting-started/install.html) rather than in the fastpm-python README, as in the latter case conda doesn't solve the environment for mpi4py properly and this causes errors. Additionally, to be compatible with the latter versions of numpy, ```pmesh/domain.py``` should have
 
 ```python
 self.edges = [numpy.asarray(g) for g in edges]
@@ -31,7 +31,7 @@ at line 87, see [this](https://github.com/rainwoodman/fastpm-python/issues/18).
 
 The vmad code installed via ```pip install vmad``` is outdated and will yield errors. Clone the repo and update the package manually.
 
-Additionally, there may be problems with mpi4py, as the installed version may require a file named ```libmpi.so.12``` which apparently used to come with OpenMPI v1.10, which is no longer supported. A workaround consists in installing mpich, locating ```libmpich.so.12``` and creating a symbolic link from it to ```libmpi.so.12```.
+Originally I solved the mpi4py problem by installing mpich with apt, locating ```libmpich.so.12``` and creating a symbolic link from it to ```libmpi.so.12```.
 
 ## Docker
 
@@ -47,7 +47,7 @@ and run it with (suggested)
 docker run -it NAME[:TAG]
 ```
 
-The image is also available at ```maurorigo/ldlimg:focal```.
+The image is also available at ```maurorigo/ldlimg:final```.
 
 **NOTE**: on Mac with M1 or above chips, you need to specify ```--platform linux/x86_64``` both on when building and running.
 

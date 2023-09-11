@@ -3,14 +3,13 @@ on: [push]
 jobs:
   test-fastpm-on-image:
     runs-on: ubuntu-latest
-    container: maurorigo/ldlimg:focal
+    container: maurorigo/ldlimg:final
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
       - name: Run test fastpm
         run: |
-          . /root/miniconda3/etc/profile.d/conda.sh
           conda activate LDLenv
           cd docker
           python testfastpm.py 0
