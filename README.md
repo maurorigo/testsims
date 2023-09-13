@@ -31,7 +31,7 @@ at line 87, see [this](https://github.com/rainwoodman/fastpm-python/issues/18).
 
 The vmad code installed via ```pip install vmad``` is outdated and will yield errors. Clone the repo and update the package manually.
 
-Originally I solved the mpi4py problem by installing mpich with apt, locating ```libmpich.so.12``` and creating a symbolic link from it to ```libmpi.so.12```.
+Originally I solved the mpi4py problem by installing mpich with apt, locating ```libmpich.so.12``` and creating a symbolic link from it to ```libmpi.so.12```; however, this may yield errors on some OS.
 
 ## Docker
 
@@ -62,13 +62,13 @@ python testfastpm.py 0
 or, with MPI:
 
 ```
-mpirun -n PROCS python testfastpm.py 0
+mpirun -n PROCS python testfastpm.py z
 ```
 
-where the ```0``` is the redshift of the snapshot to create (which will be saved in the current folder) and ```PROCS``` is the number of MPI processes.
+where the ```z``` is the redshift of the snapshot to create (which will be saved in the current folder) and ```PROCS``` is the number of MPI processes.
 
 The image can also be used to build a singularity image that can run for instance on [Leonardo](https://leonardo-supercomputer.cineca.eu/). However, in that case it is necessary to run ```conda init bash``` and restarting the image before using conda. 
 
 ## Actions
 
-At the moment, actions only test wether LDL.py and model.py work as intended when producing a stellar map. In the future, it should also include a test run of the N-body simulator (different simulators with different codes may be used, but this has not been fully defined yet).
+At the moment, actions only test whether the image works correctly in running a fastpm simulation and plotting a DM overdensity field, as I did not have time to do other things. In the future, actions should also include a test run of the N-body simulator itself (different simulators with different codes may be used, but this has not been fully defined yet), and testing of the LDL model.
